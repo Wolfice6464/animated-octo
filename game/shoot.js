@@ -37,6 +37,21 @@ function collisions()
     bullet_collision();
     player_collision();
     player_falling();
+    ennemy_bullet_collision();
+}
+
+function ennemy_bullet_collision()
+{
+    for (var i = 0; i < ennemy1.length; i++)
+    {
+        if (Math.abs(player1.bullets[i].position.x) == ennemy1.position.x &&
+            Math.abs(player1.bullets[i].position.y) == ennemy1.position.y)
+        {
+            scene.remove(ennemy1);
+            ennemy1.splice(i, 1);
+            i--;
+        }
+    }
 }
 
 function bullet_collision()
@@ -52,7 +67,6 @@ function bullet_collision()
             i--;
         }
     }
-
 }
 
 function player_collision()
