@@ -42,13 +42,15 @@ function collisions()
 
 function ennemy_bullet_collision()
 {
-    for (var i = 0; i < ennemy1.length; i++)
+    for (var i = 0; i < player1.bullets.length; i++)
     {
-        if (Math.abs(player1.bullets[i].position.x) == ennemy1.position.x &&
-            Math.abs(player1.bullets[i].position.y) == ennemy1.position.y)
+        if ((Math.abs(player1.bullets[i].position.x) <= (ennemy1.graphic.position.x + 15) &&
+            Math.abs(player1.bullets[i].position.x) >= (ennemy1.graphic.position.x - 15)) &&
+            (Math.abs(player1.bullets[i].position.y) <= (ennemy1.graphic.position.y + 15) &&
+            Math.abs(player1.bullets[i].position.y) >= (ennemy1.graphic.position.y - 15)))
         {
             scene.remove(ennemy1);
-            ennemy1.splice(i, 1);
+            player1.bullets.splice(i, 1);
             i--;
         }
     }
