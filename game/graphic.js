@@ -57,6 +57,7 @@ function Ground(color, size_x, size_y, nb_tile)
             {
                 if (x == 0 && y == 0)
                     color = 0x00ff00;
+
                 tmpGround = new THREE.Mesh(
                 new THREE.PlaneGeometry(sizeOfTileX-10, sizeOfTileY-10),
                 new THREE.MeshLambertMaterial({color: color, transparent: true, opacity: 0.6}));
